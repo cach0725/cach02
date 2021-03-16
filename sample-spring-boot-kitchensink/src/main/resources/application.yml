@@ -1,0 +1,26 @@
+#
+# Copyright 2016 LINE Corporation
+#
+# LINE Corporation licenses this file to you under the Apache License,
+# version 2.0 (the "License"); you may not use this file except in compliance
+# with the License. You may obtain a copy of the License at:
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
+
+line.bot:
+  channel-token: 'WASdhw2WvNUGyxS43/+oINY6UAxlXbVZJMcGC5HkDJR8Q0kZT7kQRHNe/j7JVJoy3ENbl27AZXEe+GFS2dDPM5P4GZ5HmUg1eLrwZps9YbJOE0LD+l5YlvcUTDc2TrHBKscbaWA20/rgAIdZ+6EjXQdB04t89/1O/w1cDnyilFU='
+  channel-secret: '669c563f1bd4d59642a707326935e4ea'
+  handler.path: /callback
+
+# To remove Client wire logs. Please comment out following lines.
+# See: https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
+#
+#logging.level:
+#   com.linecorp.bot.client.wire: INFO
