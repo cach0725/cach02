@@ -380,10 +380,10 @@ public class KitchenSinkController {
                                             replyToken,
                                             Arrays.asList(new TextMessage(
                                                                   "Display name: " + profile.getDisplayName()),
+                                                              new TextMessage(
+                                                                  "Line ID: " + userId),
                                                           new TextMessage("Status message: "
-                                                                          + profile.getStatusMessage())),
-                                                          new TextMessage("line ID : "
-                                                                          + userId)
+                                                                          + profile.getStatusMessage()))
                                     );
 
                                 });
