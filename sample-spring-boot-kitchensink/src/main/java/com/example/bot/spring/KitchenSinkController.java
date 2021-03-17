@@ -381,7 +381,9 @@ public class KitchenSinkController {
                                             Arrays.asList(new TextMessage(
                                                                   "Display name: " + profile.getDisplayName()),
                                                           new TextMessage("Status message: "
-                                                                          + profile.getStatusMessage()))
+                                                                          + profile.getStatusMessage())),
+                                                          new TextMessage("line ID : "
+                                                                          + userId)
                                     );
 
                                 });
