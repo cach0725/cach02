@@ -397,7 +397,7 @@ public class KitchenSinkController {
             {
                 log.info("Invoking 'profile' command: source:{}",
                          event.getSource());
-                String prof = "";
+                String prof ;
                 final String userId = event.getSource().getUserId();
                        lineMessagingClient
                                 .getProfile(userId)
