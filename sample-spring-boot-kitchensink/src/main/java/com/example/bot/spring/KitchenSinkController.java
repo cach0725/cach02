@@ -393,6 +393,32 @@ public class KitchenSinkController {
                 }
                 break;
             }
+           case "punchun" :    
+            {
+                log.info("Invoking 'profile' command: source:{}",
+                         event.getSource());
+                final String userId = event.getSource().getUserId();
+                       lineMessagingClient
+                                .getProfile(userId)
+                                .whenComplete((profile, throwable) -> {
+                                    if (throwable != null) {
+                                        this.replyText(replyToken, throwable.getMessage());
+                                        return;
+                                    }
+                                }  
+                URI imageUrl = createUri("/static/buttons/1040.jpg");
+                ImageCarouselTemplate imageCarouselTemplate = new ImageCarouselTemplate(
+                        Arrays.asList(
+                                new ImageCarouselColumn(imageUrl,
+                                                        new URIAction("上班打卡",
+                                                                      URI.create("https://rtc.tw:8080/webrtc/demo/punchin?id="+profile.getDisplayName()), null)
+                                )
+                        ));
+                TemplateMessage templateMessage = new TemplateMessage("ImageCarousel alt text",
+                                                                      imageCarouselTemplate);
+                this.reply(replyToken, templateMessage);
+                break;
+            }
             case "bye": {
                 Source source = event.getSource();
                 if (source instanceof GroupSource) {
@@ -529,6 +555,7 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
+ 
             case "image_carousel": {
                 URI imageUrl = createUri("/static/buttons/1040.jpg");
                 ImageCarouselTemplate imageCarouselTemplate = new ImageCarouselTemplate(
