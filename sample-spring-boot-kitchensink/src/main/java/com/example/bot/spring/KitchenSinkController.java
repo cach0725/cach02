@@ -405,7 +405,7 @@ public class KitchenSinkController {
                                         this.replyText(replyToken, throwable.getMessage());
                                         return;
                                     }
-                                });  
+                                  
                 URI imageUrl = createUri("/static/buttons/1040.jpg");
                 ImageCarouselTemplate imageCarouselTemplate = new ImageCarouselTemplate(
                         Arrays.asList(
@@ -414,6 +414,7 @@ public class KitchenSinkController {
                                                                       URI.create("https://rtc.tw:8080/webrtc/demo/punchin?id="+profile.getDisplayName()), null)
                                 )
                         ));
+                });
                 TemplateMessage templateMessage = new TemplateMessage("ImageCarousel alt text",
                                                                       imageCarouselTemplate);
                 this.reply(replyToken, templateMessage);
