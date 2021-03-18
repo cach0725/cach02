@@ -397,6 +397,7 @@ public class KitchenSinkController {
             {
                 log.info("Invoking 'profile' command: source:{}",
                          event.getSource());
+                final String prof ;
                 final String userId = event.getSource().getUserId();
                        lineMessagingClient
                                 .getProfile(userId)
@@ -405,16 +406,17 @@ public class KitchenSinkController {
                                         this.replyText(replyToken, throwable.getMessage());
                                         return;
                                     }
+                prof = profile.getDisplayName() ;
+                });
                                   
                 URI imageUrl = createUri("/static/buttons/1040.jpg");
                 ImageCarouselTemplate imageCarouselTemplate = new ImageCarouselTemplate(
                         Arrays.asList(
                                 new ImageCarouselColumn(imageUrl,
                                                         new URIAction("上班打卡",
-                                                                      URI.create("https://rtc.tw:8080/webrtc/demo/punchin?id="+profile.getDisplayName()), null)
+                                                                      URI.create("https://rtc.tw:8080/webrtc/demo/punchin?id="+prof), null)
                                 )
                         ));
-                });
                 TemplateMessage templateMessage = new TemplateMessage("ImageCarousel alt text",
                                                                       imageCarouselTemplate);
                 this.reply(replyToken, templateMessage);
